@@ -166,13 +166,12 @@ function viewHash(view: View) {
 }
 
 export default function Home() {
-  const [view, setView] = useState<View>({ type: "home" });
+  const [view, setView] = useState<View>(() => parseHash());
   const [phase, setPhase] = useState<"idle" | "out" | "in">("idle");
   const [lightbox, setLightbox] = useState<LightboxItem | null>(null);
   const timers = useRef<ReturnType<typeof setTimeout>[]>([]);
 
   useEffect(() => {
-    window.history.replaceState(null, "", "#/");
     window.scrollTo(0, 0);
     const pendingTimers = timers.current;
     const onPop = () => {
