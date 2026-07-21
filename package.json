@@ -10,7 +10,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "npm run build && node --test tests/static-build.test.mjs",
-    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern dist-pages --ignore-pattern .next --ignore-pattern outputs --ignore-pattern work",
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
